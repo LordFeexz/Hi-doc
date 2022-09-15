@@ -4,10 +4,12 @@ const router = express.Router()
 const medicine = require('./medicineRouter')
 const user = require('./userRouter')
 
-router.get('/',Controller.index)
+router.get('/',Controller.login)
 
-router.use('/jobs',medicine)
+router.post('/',Controller.postLogin)
 
-router.use('/hiring',user)
+router.use('/medicine',medicine)
+
+router.use('/user',user)
 
 module.exports = router
