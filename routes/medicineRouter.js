@@ -2,6 +2,8 @@ const express = require('express')
 const Controller = require('../controllers/medicineController')
 const router = express.Router()
 
+router.get('/', Controller.allMeds)
+
 router.get('/add',Controller.addMedicine)
 
 router.post('/add',Controller.saveMedicine)

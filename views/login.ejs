@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/header', {title: "Hi Doc"}); %>
+  <body>
+      <%- include('partials/navbar', {title: "Hi Doc",link1: '/',button1: "",link2:'',button2:""}); %>
+
+    <center>
+      <h1 class="under">Hi Doc App</h1>
+    </center>
+    <h2>Login Form</h2>
+    <br>
+    <form>
+        <div class="mb-2">
+          <label for="exampleInputEmail1" class="form-label">Username</label>
+          <input type="userName" class="form-control">
+        </div>
+        <div class="mb-2">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    <br>
+    <p>not a user? <a href="/register">Sign Up</a> here</p>
+    <%- include('partials/script'); %>
+</body>
+</html>

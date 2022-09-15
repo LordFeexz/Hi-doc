@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/header', {title: "Job Form"}); %>
+<body>
+    <%- include('partials/navbar', {title: "Apply Job",link1: '/jobs',button1: "back",link2:'',button2:""}); %>
+    
+    <br><br><br><br>
+    <div class="container content margin-auto">
+        <form action="/medicine/add" method="post">
+            <p>
+              Medicine Name: <br />
+              <input type="text" name="name" value="<%= medicine.name %>" />
+            </p>
+            <p>
+              Disease: <br/>
+              <select name="DiseaseId">
+                <option value="<%= disease.name %>" disabled selected>--- SELECT ONE ---</option>
+                <% disease.forEach(el => { %>
+                 <option value="<%= el.id %>"><%= el.name %></option>
+                <% }) %>
+              </select>
+            </p>
+            <p>
+              Price:<br />
+              <input type="number" name="price" value="<%= medicine.price %>" />
+            </p>
+            <p>
+                Stock: <br>
+                <input type="number" name="stock" value="<%= medicine.stock %>"/>
+            </p>
+            <p>
+              <input type="submit" value="SAVE" />
+              <input type="reset" value="CANCEL" />
+            </p>
+          </form>
+          </div>
+
+    <%- include('partials/script'); %>
+</body>
+</html>

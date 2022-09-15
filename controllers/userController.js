@@ -20,7 +20,7 @@ class Controller{
     }
 
     static buy(req,res){
-        res.send('ok')
+        res.send('terima kasih sudah belanja')
     }
 
 }

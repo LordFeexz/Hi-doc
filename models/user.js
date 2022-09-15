@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      User.hasOne(models.UserProfile, {foreignKey: 'UserId'})
+      User.hasMany(models.Medicine, {foreignKey: 'UserId'})
     }
   }
   User.init({
@@ -22,5 +24,10 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'User',
   });
+  User.beforeCreate(el => {
+    const salt = bcryptjs.genSaltSync(10)
+    const hash = bcryptjs.hashSync(e.password,salt)
+    el.password = hash
+  })
   return User;
 };
