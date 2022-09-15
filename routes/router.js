@@ -8,6 +8,12 @@ router.get('/',Controller.login)
 
 router.post('/',Controller.postLogin)
 
+router.get('/register', Controller.registerForm)
+
+router.post('/register', Controller.saveData)
+
+router.get('/home', Controller.landingPage)
+
 router.use('/medicine',medicine)
 
 router.use('/user',user)

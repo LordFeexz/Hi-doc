@@ -6,7 +6,7 @@ router.get('/',Controller.medicineList)
 
 router.get('/:medicineId/detail',Controller.medicineDetail)
 
-router.get('/:id/add-salary',Controller.buy)
+router.get('/:medicineId/purchase',Controller.buy)
 
 
 module.exports = router

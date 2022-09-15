@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/header', {title: "Meds Detail"}); %>
+<body>
+    <%- include('partials/navbar', {title: "Medicine Detail",link1: '/user',button1: "back",link2:'',button2:""}); %>
+<br><br><br><br><br>
+    <div class="content">
+    <p>
+        <%= medicine.name %>
+    </p>
+
+    <p>
+        Price: <br>
+        Rp. <%= medicine.price %>
+    </p>
+
+    <p>
+        Stock: <br>
+        <%= medicine.stock %>
+    </p>
+
+    <p>
+        Best treatment for: <br>
+        <%= medicine.Disease.name %>
+    </p>
+
+    <p>
+      <a href="/user/<%= medicine.id %>/purchase"> <button>Purchase</button> </a>
+ 
+</div>
+    <%- include('partials/script'); %>
+</body>
+</html>

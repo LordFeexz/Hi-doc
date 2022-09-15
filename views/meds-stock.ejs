@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/header', {title: "Hi Doc"}); %>
+<body>
+  <%- include('partials/navbar', {title: "Medicine List",link1: '/',button1: "",link2:'',button2:""}); %>
+    
+    <div class="container content">
+      <br><br><br><br>
+      <div>
+        <a class="btn btn-primary" href="/medicine/add" role="button">ADD NEW MEDICINE</a>
+      </div>
+        
+<br>
+        <table class="table table-striped">
+            <tr>
+                <th>Medicines Name</th>
+                <th>Disease</th>
+                <th>Stock</th>
+                <th>Action</th>
+            </tr>
+            <% medicine.forEach(el => { %>
+              <tr>
+                  <td><%= el.name %></td>
+                  <td><%= el.Disease.name %></td>
+                  <td><%= el.stock %></td>
+                  <td>
+                      <a role="button" href="/medicine/<%= el.id %>/edit">Update Stock</a>
+                  </td>
+              </tr>
+              <% }) %>
+          </table>
+    </div>
+    <%- include('partials/script'); %>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/header', {title: "Home"}); %>
+<body>
+    <%- include('partials/navbar', {title: "Hi Doc App",link1: '/',button1: "",link2:'',button2:""}); %>
+    <br><br><br><br><br><br>
+    <div class="container content flex-column justify-content-between" style="text-align: center;">
+    <a role="button" class="btn border border-dark" href="/medicine">Manage Stocks</a>
+    <a role="button" class="btn border border-dark" href="/user">Get Meds</a>
+  </div>
+
+    <%- include('partials/script'); %>
+</body>
+</html>

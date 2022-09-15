@@ -2,11 +2,19 @@ const {Medicine,Disease,User} = require("../models")
 
 class Controller{
 
+    static allMeds(req, res) {
+        Medicine.findAll({
+            include:Disease
+        })
+        .then(medicine => res.render('meds-stock',{ medicine })) //nampilin medicine sama disease aja
+        .catch(err => res.send(err))
+    }
+
     static addMedicine(req,res){
       Medicine.findAll({
         include:[Disease,User]
       })
-      .then(medicine => res.render('addMedicine',{ medicine }))
+      .then(medicine => res.render('add-medicine',{ medicine }))
       .catch(err => res.send(err))
     }
 
