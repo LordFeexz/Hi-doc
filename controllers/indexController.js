@@ -1,7 +1,7 @@
 class Controller{
 
     static login(req,res){
-        res.render('loginForm')
+        res.render('login')
     }
 
     static postLogin(req,res){

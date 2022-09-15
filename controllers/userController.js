@@ -1,4 +1,4 @@
-const {Medicine,Disease,User} = require()
+const {Medicine,Disease,User} = require('../models')
 
 class Controller{
 
