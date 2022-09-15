@@ -24,7 +24,10 @@ class Controller{
     }
 
     static update(req,res){
-        
+        const id = req.params.medicineId
+        let medicine
+        Medicine.findByPk(+id)
+        .then()
     }
 
     static saveChanges(req,res){
