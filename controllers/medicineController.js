@@ -26,12 +26,39 @@ class Controller{
     static update(req,res){
         const id = req.params.medicineId
         let medicine
+        let disease
+        let user
         Medicine.findByPk(+id)
-        .then()
+        .then(result => {
+            medicine = result
+            return Disease.findAll()
+        })
+        .then(result => {
+            disease = result
+            return User.findAll()
+        })
+        .then(result => {
+            user = result
+            res.render('edit',{medicine,disease,user})
+        })
+        .catch(err => res.send(err))
     }
 
     static saveChanges(req,res){
-
+        const id = req.params.medicineId
+        const {name,price,stock,DiseaseId,UserId} = req.body
+        Medicine.update({
+            name:name,
+            price:+price,
+            stock:+stock,
+            DiseaseId:+DiseaseId,
+            UserId:+UserId
+        },
+        {
+            where:{
+                id:+id
+            }
+        })
     }
 }
 module.exports = Controller

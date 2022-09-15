@@ -1,4 +1,4 @@
-const {Medicine,Disease,User} = require()
+const {Medicine,Disease,User} = require('../models')
 
 class Controller{
 
@@ -20,7 +20,7 @@ class Controller{
     }
 
     static buy(req,res){
-        
+        res.send('ok')
     }
 
 }
