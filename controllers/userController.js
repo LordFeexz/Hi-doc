@@ -1,5 +1,5 @@
 const {Medicine,Disease,User} = require('../models')
-const receipt = require('receipt')
+const printReceipt = require('../helper/receipt')
 
 class Controller{
 
@@ -21,7 +21,8 @@ class Controller{
     }
 
     static buy(req,res){
-        res.send(receipt)
+        const printReceipts = printReceipt()
+        res.render('receipt', {printReceipts})
     }
 
 }

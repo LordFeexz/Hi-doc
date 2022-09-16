@@ -41,11 +41,16 @@ class Controller{
         })
         .then(result => {
             disease = result
-            return User.findAll()
+            return User.findOne({
+                where: {
+                    id: medicine.UserId
+                }
+            })
         })
         .then(result => {
             user = result
             res.render('edit',{medicine,disease,user})
+            // res.send(user)
         })
         .catch(err => res.send(err))
     }
@@ -53,6 +58,7 @@ class Controller{
     static saveChanges(req,res){
         const id = req.params.medicineId
         const {name,price,stock,DiseaseId,UserId} = req.body
+        console.log(req.body);
         Medicine.update({
             name:name,
             price:+price,
@@ -65,7 +71,7 @@ class Controller{
                 id:+id
             }
         })
-        .then(() => res.redirect('/allMeds'))
+        .then(() => res.redirect('/'))
         .catch(err => res.send(err))
     }
 }

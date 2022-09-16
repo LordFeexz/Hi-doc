@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Medicine.belongsTo(models.Disease, {foreignKey: 'DiseaseId'})
-      Medicine.belongsTo(models.User, {foreignKey: 'UserId'})
+      Medicine.belongsTo(models.Disease, { onDelete: 'CASCADE', hooks:true })
+      Medicine.belongsTo(models.User, { onDelete: 'CASCADE', hooks:true })
     }
     static medicineList(data){
       return this.findAll({

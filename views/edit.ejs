@@ -6,7 +6,7 @@
     
     <br><br><br><br>
     <div class="container content margin-auto">
-        <form action="/medicine/add" method="post">
+        <form action="/medicine/<%= medicine.id %>/edit" method="post">
             <p>
               Medicine Name: <br />
               <input type="text" name="name" value="<%= medicine.name %>" />
@@ -14,7 +14,7 @@
             <p>
               Disease: <br/>
               <select name="DiseaseId">
-                <option value="<%= disease.name %>" disabled selected>--- SELECT ONE ---</option>
+
                 <% disease.forEach(el => { %>
                  <option value="<%= el.id %>"><%= el.name %></option>
                 <% }) %>
@@ -28,6 +28,7 @@
                 Stock: <br>
                 <input type="number" name="stock" value="<%= medicine.stock %>"/>
             </p>
+            <input type="UserId" name="UserId" value="<%= user.id %>">
             <p>
               <input type="submit" value="SAVE" />
               <input type="reset" value="CANCEL" />
