@@ -12,6 +12,16 @@ router.get('/register', Controller.registerForm)
 
 router.post('/register', Controller.saveData)
 
+router.use((req,res,next) => {
+    if(!req.session.user.id){
+        const error = `login first!`
+        res.redirect(`/?error=${error}`)
+    }
+    else{
+        next()
+    }
+})
+
 router.get('/home', Controller.landingPage)
 
 router.use('/medicine',medicine)

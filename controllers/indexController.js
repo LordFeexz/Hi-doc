@@ -18,7 +18,7 @@ class Controller{
             if(user){
                 const valid = bcryptjs.compareSync(password,user.password)
                 if(valid){
-                    req.session.userid = user.valid
+                    req.session.userid = user.id
                     req.session.role = user.role
                     req.session.userName = user.userName
                     res.redirect('/home')

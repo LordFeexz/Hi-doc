@@ -4,9 +4,7 @@ const receipt = require('receipt')
 class Controller{
 
     static medicineList(req,res){
-        Medicine.findAll({
-            include:Disease
-        })
+        Medicine.medicineList(Disease)
         .then(medicine => res.render('medicineList',{ medicine })) //nampilin medicine sama disease aja
         .catch(err => res.send(err))
     }
