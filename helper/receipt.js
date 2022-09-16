@@ -1,8 +1,9 @@
-const receipt = require('receipt')
+const receipt = require('receipt');
+const medicine = require('../models/medicine');
 
 function printReceipt() {
     receipt.config.currency = 'Rp';
-    receipt.config.width = 60;
+    receipt.config.width = 50;
     receipt.config.ruler = '-';
     
     const output = receipt.create([
@@ -21,10 +22,6 @@ function printReceipt() {
             { item: 'Product 1', qty: 1, cost: 1000 },
             { item: 'Product 2 with a really long name', qty: 1, cost: 17500, discount: { type: 'absolute', value: 1000 } },
             { item: 'Another product wth quite a name', qty: 2, cost: 900 },
-            { item: 'Product 4', qty: 1, cost: 80, discount: { type: 'percentage', value: 0.15 } },
-            { item: 'This length is ridiculously lengthy', qty: 14, cost: 8516 },
-            { item: 'Product 6', qty: 3, cost: 500 },
-            { item: 'Product 7', qty: 3, cost: 500, discount: { type: 'absolute', value: 500, message: '3 for the price of 2' } }
         ] },
         { type: 'empty' },
         { type: 'text', value: 'Some extra information to add to the footer of this docket.', align: 'center' },
