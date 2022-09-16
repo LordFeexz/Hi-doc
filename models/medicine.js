@@ -14,6 +14,12 @@ module.exports = (sequelize, DataTypes) => {
       Medicine.belongsTo(models.Disease, {foreignKey: 'DiseaseId'})
       Medicine.belongsTo(models.User, {foreignKey: 'UserId'})
     }
+    static medicineList(data){
+      return this.findAll({
+        include:data
+      })
+    }
+
   }
   Medicine.init({
     name: DataTypes.STRING,

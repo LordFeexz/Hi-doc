@@ -1,4 +1,5 @@
 const {Medicine,Disease,User} = require('../models')
+const receipt = require('receipt')
 
 class Controller{
 
@@ -20,7 +21,7 @@ class Controller{
     }
 
     static buy(req,res){
-        res.send('terima kasih sudah belanja')
+        res.send(receipt)
     }
 
 }

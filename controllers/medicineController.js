@@ -3,9 +3,7 @@ const {Medicine,Disease,User} = require("../models")
 class Controller{
 
     static allMeds(req, res) {
-        Medicine.findAll({
-            include:Disease
-        })
+        Medicine.medicineList(Disease)
         .then(medicine => res.render('meds-stock',{ medicine })) //nampilin medicine sama disease aja
         .catch(err => res.send(err))
     }
@@ -67,6 +65,8 @@ class Controller{
                 id:+id
             }
         })
+        .then(() => res.redirect('/allMeds'))
+        .catch(err => res.send(err))
     }
 }
 module.exports = Controller

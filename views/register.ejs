@@ -6,6 +6,12 @@
 
     <h1 class="under">Sign Up Form</h1>
 
+    <% if (error) { %>
+      <p>
+        <%= error %>
+      </p>
+      <% } %>
+
     <form action="/register" method="post">
         <div class="col-md-4">
           <label class="form-label">Full Name</label>
