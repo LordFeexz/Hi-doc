@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/header', {title: "Hi Doc"}); %>
+  <body>
+      <%- include('partials/navbar', {title: "Hi Doc",link1: '/',button1: "",link2:'',button2:""}); %>
+    <div class="container under">
+      <p><%= printReceipts %></p>
+    </div>
+    <%- include('partials/script'); %>
+</body>
+</html>

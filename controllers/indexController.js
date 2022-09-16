@@ -10,9 +10,9 @@ class Controller{
     }
 
     static postLogin(req,res){
-        const {userName,password} = req.body
+        const {username,password} = req.body
         User.findOne({
-            where:{userName}
+            where:{username}
         })
         .then(user => {
             if(user){
@@ -20,6 +20,7 @@ class Controller{
                 if(valid){
                     req.session.userid = user.id
                     req.session.role = user.role
+                    console.log('masuk');
                     req.session.userName = user.userName
                     res.redirect('/home')
                 }
@@ -33,7 +34,10 @@ class Controller{
                 res.redirect(`/login?error=${error}`)
             }
         })
-        .catch(err => res.send(err))
+        .catch(err => {
+            console.log('error');
+            res.send(err)
+        }) 
 
     }
 
@@ -53,12 +57,22 @@ class Controller{
     }
 
     static saveData(req, res) {
-        const {userName,password,email,role} = req.body
+        const {fullName, username,password,email,role, age, address, phone} = req.body
         User.create({
-           userName: userName,
+           username: username,
            password:password,
            email:email,
            role:role
+        })
+        .then(createduser => {
+            return UserProfile.create({
+                fullName:fullName,
+                age: age,
+                address: address,
+                phone: phone,
+                UserId: createduser.id,
+                email: email
+            })
         })
         .then(() => res.redirect('/'))
         .catch(err => {

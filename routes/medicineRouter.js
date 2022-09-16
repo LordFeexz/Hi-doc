@@ -22,6 +22,8 @@ router.get('/:medicineId/edit',Controller.update)
 
 router.post('/:medicineId/edit',Controller.saveChanges)
 
+router.get('/:id/delete', Controller.destroy)
+
 
 
 

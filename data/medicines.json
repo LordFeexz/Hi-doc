@@ -3,60 +3,14 @@
     "name": "Obh Combi Dewasa Batuk Flu Rasa Jahe 100ml (per Botol)",
     "stock": 50,
     "price": 20884,
-    "DiseaseId": 1
+    "DiseaseId": 11,
+    "UserId": 1
   },
   {
     "name": "Ferospat Eff Tablet",
     "stock": 50,
     "price": 103754,
-    "DiseaseId": 2
-  },
-  {
-    "name": "Exforge 10mg/160mg Tablet",
-    "stock": 50,
-    "price": 266000,
-    "DiseaseId": 3
-  },
-  {
-    "name": "Deculin 30mg Tablet",
-    "stock": 50,
-    "price": 426840,
-    "DiseaseId": 4
-  },
-  {
-    "name": "Nutrafor Chol Kapsul",
-    "stock": 50,
-    "price": 290280,
-    "DiseaseId": 5
-  },
-  {
-    "name": "Tempra Sirup 60ml",
-    "stock": 50,
-    "price": 52958,
-    "DiseaseId": 6
-  },
-  {
-    "name": "Diapet Kapsul",
-    "stock": 50,
-    "price": 69000,
-    "DiseaseId": 7
-  },
-  {
-    "name": "Daiticin 500mg Tablet",
-    "stock": 50,
-    "price": 17980,
-    "DiseaseId": 8
-  },
-  {
-    "name": "Cedocard 10mg Tablet",
-    "stock": 50,
-    "price": 135600,
-    "DiseaseId": 9
-  },
-  {
-    "name": "DHolisticare Super Ester C Tablet",
-    "stock": 50,
-    "price": 150000,
-    "DiseaseId": 10
+    "DiseaseId": 11,
+    "UserId": 1
   }
 ]

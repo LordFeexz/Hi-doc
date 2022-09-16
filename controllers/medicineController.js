@@ -20,10 +20,10 @@ class Controller{
         const {name,price,stock,DiseaseId,UserId} = req.body
         Medicine.create({
             name:name,
-            price:price,
-            stock:stock,
-            DiseaseId:DiseaseId,
-            UserId:UserId
+            price:+price,
+            stock:+stock,
+            DiseaseId:+DiseaseId,
+            UserId:+UserId
         })
         .then(res.redirect(`/medicine/`))
         .catch(err => res.send(err))
@@ -41,11 +41,16 @@ class Controller{
         })
         .then(result => {
             disease = result
-            return User.findAll()
+            return User.findOne({
+                where: {
+                    id: medicine.UserId
+                }
+            })
         })
         .then(result => {
             user = result
             res.render('edit',{medicine,disease,user})
+            // res.send(user)
         })
         .catch(err => res.send(err))
     }
@@ -53,6 +58,7 @@ class Controller{
     static saveChanges(req,res){
         const id = req.params.medicineId
         const {name,price,stock,DiseaseId,UserId} = req.body
+        console.log(req.body);
         Medicine.update({
             name:name,
             price:+price,
@@ -65,8 +71,21 @@ class Controller{
                 id:+id
             }
         })
-        .then(() => res.redirect('/allMeds'))
+        .then(() => res.redirect('/medicine'))
         .catch(err => res.send(err))
+    }
+
+    static destroy(req, res) {
+        const idReq = req.params.id
+        Medicine.destroy({
+            where: {
+                id: +idReq
+            }
+        })
+            .then(res.redirect('/medicine'))
+            .catch((err) => {
+                res.send(err)
+            })
     }
 }
 module.exports = Controller
