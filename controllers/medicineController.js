@@ -71,7 +71,7 @@ class Controller{
                 id:+id
             }
         })
-        .then(() => res.redirect('/'))
+        .then(() => res.redirect('/medicine'))
         .catch(err => res.send(err))
     }
 }
